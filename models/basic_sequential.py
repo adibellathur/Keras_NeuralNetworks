@@ -8,6 +8,7 @@ class BasicSequential(SequentialNetwork):
     def __init__(self):
         super().__init__()
         self.model = self._load_sequential_model()
+        return
 
     def _load_sequential_model(self):
         model = Sequential()
@@ -15,8 +16,8 @@ class BasicSequential(SequentialNetwork):
         model.add(Dense(8, activation='relu'))
         model.add(Dense(1, activation='sigmoid'))
         model.compile(optimizer='adam', \
-                      loss='binary_crossentropy', \
-                      metrics=['accuracy'])
+                 loss='binary_crossentropy', \
+                 metrics=['accuracy'])
         return model
 
     def fit_model(self, epochs, batch_size, verbose=1):
